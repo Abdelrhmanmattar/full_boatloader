@@ -1,0 +1,74 @@
+       FLASH OVER THE AIR
+	   
+	   
+	   
+ISMAIL AHMED / ABDELRHMAN KAMAL
+
+
+PROPOSED TO : VALEO - EGYPT
+
+
+Problem Statement:
+CURRENT vehicles contain hundreds or thousands of ECUS SO IF THERE IS UPDATE , BUG OR
+new feature , we want to add ,this will cost high value and specific devices ,if the new update
+flash in maintenance center , so we to method to flash new update wireless
+
+===============================
+WHY FOTA?
+
+Many embedded systems are bulid in places that are difficult or for 
+a human to work with (especially in IOT APPS and vehicles).
+ 
+This apps always need update to fix bugs so we found that FOTA is the best and
+cheapest solution.
+
+
+==============================
+
+Project Objective:
+
+This project aims to design FOTA system to
+update the flash memory with as little memory as possible
+And secure data
+
+============================================
+Hardware Requirements:
+
+--STM32 ( FOR MASTER AND TARGETS)
+
+--WIFI MODULE
+
+-- SOME SENSORS TO BULID ECUS OF TARGETS (ULTRASONIC , BUZZER , SERVO MOTOR ,...)
+
+
+Software Requirements:
+--cloud server to upload hex file
+--GUI to choose target and hex file before upload
+--Bootloader / Boot Manager to update flash in runtime
+
+
+===========================================================================
+
+State Diagram:
+
+put picture here:_____________________________________
+
+
+===============================================
+Technical Approach:
+
+3 main stages:
+
+-user choose new hex file will be uploaded to Cloud Server and determind the target
+then compare old hex file with new hex file to select which pages will update
+
+-MASTER ECU will access Cloud Server every specific time , and find if there is 
+new update , then determind target and download new update and save it in 
+specific space in memory
+
+-NEW UPDATE will send to target and Bootloader part in ECU will deal with data and
+backup previous flash to avoid any error or problem in update 
+
+
+
+
